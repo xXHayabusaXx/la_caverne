@@ -16,6 +16,8 @@ class Personnages(model.Model):
     divinite = models.CharField(max_length=100)
     initiative = models.IntegerField()
     point_carac = models.IntegerField()
+    classe = models.ForeignKey(Classe, on_delete=models.CASCADE)
+    race = models.ForeignKey(Race, on_delete=models.CASCADE)
 
 
 class Classe(model.Model):
@@ -42,10 +44,11 @@ class Def(model.Model):
 
     nom = models.CharField(max_length=50)
     valeur = models.IntegerField()
-
+    personnages = models.ForeignKey(Personnages, on_delete=models.CASCADE)
 
 class Carac(model.Model):
     "Record character model"
 
     nom = models.CharField(max_length=50)
     valeur = models.IntegerField()
+    personnages = models.ForeignKey(Personnages, on_delete=models.CASCADE)
