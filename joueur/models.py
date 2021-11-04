@@ -4,7 +4,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
-class Personnages(model.Model):
+class Personnages(models.Model):
     "Record person model"
 
     nom = models.CharField(max_length=50)
@@ -20,7 +20,7 @@ class Personnages(model.Model):
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
 
 
-class Classe(model.Model):
+class Classe(models.Model):
     "Record classe model"
 
     nom = models.CharField(max_length=50)
@@ -29,7 +29,7 @@ class Classe(model.Model):
     recuperation = models.IntegerField()
 
 
-class Race(model.Model):
+class Race(models.Model):
     "Record race model"
 
     nom = models.CharField(max_length=50)
@@ -39,14 +39,14 @@ class Race(model.Model):
     vision = models.BooleanField()
 
 
-class Def(model.Model):
+class Def(models.Model):
     "Record definition model"
 
     nom = models.CharField(max_length=50)
     valeur = models.IntegerField()
     personnages = models.ForeignKey(Personnages, on_delete=models.CASCADE)
 
-class Carac(model.Model):
+class Carac(models.Model):
     "Record character model"
 
     nom = models.CharField(max_length=50)
