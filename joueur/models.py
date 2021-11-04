@@ -4,22 +4,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
-class Personnages(models.Model):
-    "Record person model"
-
-    nom = models.CharField(max_length=50)
-    age = models.IntegerField()
-    sex = models.BooleanField()
-    taille = models.IntegerField()
-    poids = models.IntegerField()
-    alignement = models.CharField(max_length=100)
-    divinite = models.CharField(max_length=100)
-    initiative = models.IntegerField()
-    point_carac = models.IntegerField()
-    classe = models.ForeignKey(Classe, on_delete=models.CASCADE)
-    race = models.ForeignKey(Race, on_delete=models.CASCADE)
-
-
 class Classe(models.Model):
     "Record classe model"
 
@@ -39,12 +23,29 @@ class Race(models.Model):
     vision = models.BooleanField()
 
 
+class Personnages(models.Model):
+    "Record person model"
+
+    nom = models.CharField(max_length=50)
+    age = models.IntegerField()
+    sex = models.BooleanField()
+    taille = models.IntegerField()
+    poids = models.IntegerField()
+    alignement = models.CharField(max_length=100)
+    divinite = models.CharField(max_length=100)
+    initiative = models.IntegerField()
+    point_carac = models.IntegerField()
+    classe = models.ForeignKey(Classe, on_delete=models.CASCADE)
+    race = models.ForeignKey(Race, on_delete=models.CASCADE)
+
+
 class Def(models.Model):
     "Record definition model"
 
     nom = models.CharField(max_length=50)
     valeur = models.IntegerField()
     personnages = models.ForeignKey(Personnages, on_delete=models.CASCADE)
+
 
 class Carac(models.Model):
     "Record character model"
