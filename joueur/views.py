@@ -5,4 +5,4 @@ from django.shortcuts import render
 def calcul(request):
     """Display calcul results and save user's personnage information."""
 
-    return render(request, "joueur/perso.html", context)
+    return render(request, "joueur/perso.html")
