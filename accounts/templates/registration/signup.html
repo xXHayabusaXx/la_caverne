@@ -1,0 +1,12 @@
+{% extends "joueur/base.html" %}
+
+{% block welcome %}
+  <div>
+    <h2 id="signup_title">Création de compte:</h2>
+    <br>
+    <form action="{% url 'signup' %}" method="post">
+      {% csrf_token %}
+      <button class="btn btn-primary" type="submit">S'inscrire</button>
+    </form>
+  </div>
+{% endblock %}
