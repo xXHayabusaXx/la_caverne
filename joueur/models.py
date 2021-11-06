@@ -37,6 +37,7 @@ class Personnages(models.Model):
     point_carac = models.IntegerField()
     classe = models.ForeignKey(Classe, on_delete=models.CASCADE)
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
+    utilisateur = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Def(models.Model):
