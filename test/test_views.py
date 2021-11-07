@@ -170,3 +170,18 @@ class TestSignup:
         assert response.templates[0].name == "registration/signup.html"
         assert response.templates[1].name == "joueur/base.html"
         assert users.count() == 1
+
+
+#####################
+#   my_account view #
+#####################
+
+
+def test_my_account():
+
+    client = Client()
+    response = client.get("/my_account/")
+
+    assert response.status_code == 200
+    assert response.templates[0].name == "registration/account.html"
+    assert response.templates[1].name == "joueur/base.html"
