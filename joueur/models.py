@@ -12,6 +12,9 @@ class Classe(models.Model):
     pdv = models.IntegerField()
     recuperation = models.IntegerField()
 
+    def __str__(self):
+        return self.nom
+
 
 class Race(models.Model):
     "Record race model"
@@ -21,6 +24,9 @@ class Race(models.Model):
     vitesse_dep = models.IntegerField()
     cat_taille = models.CharField(max_length=50)
     vision = models.BooleanField()
+
+    def __str__(self):
+        return self.nom
 
 
 class Personnages(models.Model):
@@ -39,6 +45,9 @@ class Personnages(models.Model):
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
     utilisateur = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.nom
+
 
 class Def(models.Model):
     "Record definition model"
@@ -47,6 +56,9 @@ class Def(models.Model):
     valeur = models.IntegerField()
     personnages = models.ForeignKey(Personnages, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.nom
+
 
 class Carac(models.Model):
     "Record character model"
@@ -54,3 +66,6 @@ class Carac(models.Model):
     nom = models.CharField(max_length=50)
     valeur = models.IntegerField()
     personnages = models.ForeignKey(Personnages, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nom
