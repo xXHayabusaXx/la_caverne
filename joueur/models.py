@@ -32,9 +32,14 @@ class Race(models.Model):
 class Personnages(models.Model):
     "Record person model"
 
+    GENDER = (
+    ('M', 'mâle'),
+    ('F', 'femelle')
+    )
+
     nom = models.CharField(max_length=50)
     age = models.IntegerField()
-    sex = models.BooleanField()
+    gender = models.CharField(max_length=50, choices=GENDER, verbose_name="sexe")
     taille = models.IntegerField()
     poids = models.IntegerField()
     alignement = models.CharField(max_length=100)

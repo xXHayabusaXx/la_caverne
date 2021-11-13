@@ -24,7 +24,7 @@ class CreaPersoForm(ModelForm):
         fields = [
             "nom",
             "age",
-            "sex",
+            "gender",
             "taille",
             "poids",
             "alignement",
